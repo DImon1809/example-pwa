@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="manifest" href="manifest.json" />
+  </head>
+  <body>
+    <section class="content-wrapper">
+      <h1>Here pwa application</h1>
+
+      <button class="my-button">Click me</button>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+      window.addEventListener("load", async () => {
+        try {
+          if ("serviceWorker" in navigator) {
+            await navigator.serviceWorker.register("serviceWorker.js");
+          }
+        } catch (err) {
+          console.error(err);
+        }
+      });
+    </script>
+  </body>
+</html>
